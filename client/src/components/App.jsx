@@ -63,6 +63,21 @@ class App extends React.Component {
         C: 100,
         D: 500,
         M: 1000
+      },
+      descendingRomanNumerals: {
+        M: 1000, 
+        CM: 900, 
+        D: 500, 
+        CD: 400, 
+        C: 100, 
+        XC: 90, 
+        L: 50, 
+        XL: 40, 
+        X: 10, 
+        IX: 9, 
+        V: 5, 
+        IV: 4, 
+        I: 1
       }
     };
 
@@ -136,12 +151,19 @@ class App extends React.Component {
 
   addNumbers(event) {
     event.preventDefault();
-    
+
     let totalNum = this.state.firstNum + this.state.secondNum;
-    //need to translate total to Roman Numeral
+    let counterNum = totalNum;
     let totalVal = '';
     if (totalNum < 0) {
       totalVal = 'Nulla';
+    }
+
+    for (let i in this.state.descendingRomanNumerals) {
+      while (counterNum >= this.state.descendingRomanNumerals[i]) {
+        totalVal += i;
+        counterNum -= this.state.descendingRomanNumerals[i];
+      }
     }
 
     this.setState({totalNum: totalNum, totalVal: totalVal});
@@ -152,10 +174,17 @@ class App extends React.Component {
     event.preventDefault();
 
     let totalNum = this.state.firstNum - this.state.secondNum;
-    //need to translate total to Roman Numeral
+    let counterNum = totalNum;
     let totalVal = '';
     if (totalNum < 0) {
       totalVal = 'Nulla';
+    }
+
+    for (let i in this.state.descendingRomanNumerals) {
+      while (counterNum >= this.state.descendingRomanNumerals[i]) {
+        totalVal += i;
+        counterNum -= this.state.descendingRomanNumerals[i];
+      }
     }
 
     this.setState({totalNum: totalNum, totalVal: totalVal});
@@ -166,10 +195,17 @@ class App extends React.Component {
     event.preventDefault();
 
     let totalNum = this.state.firstNum * this.state.secondNum;
-    //need to translate total to Roman Numeral
+    let counterNum = totalNum;
     let totalVal = '';
     if (totalNum < 0) {
       totalVal = 'Nulla';
+    }
+
+    for (let i in this.state.descendingRomanNumerals) {
+      while (counterNum >= this.state.descendingRomanNumerals[i]) {
+        totalVal += i;
+        counterNum -= this.state.descendingRomanNumerals[i];
+      }
     }
 
     this.setState({totalNum: totalNum, totalVal: totalVal});
@@ -180,10 +216,17 @@ class App extends React.Component {
     event.preventDefault();
 
     let totalNum = this.state.firstNum / this.state.secondNum;
-    //need to translate total to Roman Numeral
+    let counterNum = totalNum;
     let totalVal = '';
     if (totalNum < 0) {
       totalVal = 'Nulla';
+    }
+
+    for (let i in this.state.descendingRomanNumerals) {
+      while (counterNum >= this.state.descendingRomanNumerals[i]) {
+        totalVal += i;
+        counterNum -= this.state.descendingRomanNumerals[i];
+      }
     }
 
     this.setState({totalNum: totalNum, totalVal: totalVal});
@@ -215,7 +258,6 @@ class App extends React.Component {
           <button type="button" onClick={this.multiplyNumbers}> * </button>
           <button type="button" onClick={this.divideNumbers}> / </button>
         </StyledForm>
-        
         <Results firstVal={this.state.firstVal} firstNum={this.state.firstNum} 
           secondVal={this.state.secondVal} secondNum={this.state.secondNum}
           totalVal={this.state.totalVal} totalNum={this.state.totalNum} />
