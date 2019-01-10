@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const StyledTable = styled.table`
   max-width: 20%;
   margin-left: 30px;
+  float: left;
   background-color: #b8c4bb;
   text-align: center;
   color: black;
@@ -28,38 +29,40 @@ const Key = (props) => {
   return (
     <div>
       <StyledTable>
-        <tr>
-          <StyledHeaders>Roman Numeral</StyledHeaders>
-          <StyledHeaders>Numeric Value</StyledHeaders>
-        </tr>
-        <tr>
-          <StyledCells>I</StyledCells>
-          <StyledCells>1</StyledCells>
-        </tr>
-        <tr>
-          <StyledCells>V</StyledCells>
-          <StyledCells>5</StyledCells>
-        </tr>
-        <tr>
-          <StyledCells>X</StyledCells>
-          <StyledCells>10</StyledCells>
-        </tr>
-        <tr>
-          <StyledCells>L</StyledCells>
-          <StyledCells>50</StyledCells>
-        </tr>
-        <tr>
-          <StyledCells>C</StyledCells>
-          <StyledCells>100</StyledCells>
-        </tr>
-        <tr>
-          <StyledCells>D</StyledCells>
-          <StyledCells>500</StyledCells>
-        </tr>
-        <tr>
-          <StyledCells>M</StyledCells>
-          <StyledCells>1000</StyledCells>
-        </tr>
+        <tbody>
+          <tr>
+            <StyledHeaders>Roman Numeral</StyledHeaders>
+            <StyledHeaders>Numeric Value</StyledHeaders>
+          </tr>
+          <tr>
+            <StyledCells>I</StyledCells>
+            <StyledCells>1</StyledCells>
+          </tr>
+          <tr>
+            <StyledCells>V</StyledCells>
+            <StyledCells>5</StyledCells>
+          </tr>
+          <tr>
+            <StyledCells>X</StyledCells>
+            <StyledCells>10</StyledCells>
+          </tr>
+          <tr>
+            <StyledCells>L</StyledCells>
+            <StyledCells>50</StyledCells>
+          </tr>
+          <tr>
+            <StyledCells>C</StyledCells>
+            <StyledCells>100</StyledCells>
+          </tr>
+          <tr>
+            <StyledCells>D</StyledCells>
+            <StyledCells>500</StyledCells>
+          </tr>
+          <tr>
+            <StyledCells>M</StyledCells>
+            <StyledCells>1000</StyledCells>
+          </tr>
+        </tbody>
       </StyledTable> 
     </div>
   )
